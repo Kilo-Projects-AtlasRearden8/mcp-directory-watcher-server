@@ -1,0 +1,29 @@
+{
+  "name": "mcp-directory-watcher-server",
+  "version": "1.0.0",
+  "description": "Local-first MCP server that watches a folder and exposes file changes, listings, and reads",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-directory-watcher-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["mcp", "model-context-protocol", "file-watcher", "local-first"],
+  "author": "Asdale Dynamics, LLC",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.12"
+  }
+}

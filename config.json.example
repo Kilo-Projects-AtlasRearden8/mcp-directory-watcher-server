@@ -1,0 +1,6 @@
+{
+  "watchPath": "./watched",
+  "maxChangeEvents": 200,
+  "maxReadBytes": 1048576,
+  "ignore": ["node_modules", ".git"]
+}
