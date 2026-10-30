@@ -2,7 +2,7 @@
 
 ## What was built
 
-A local-first Model Context Protocol (MCP) server that watches a folder on your machine and exposes file changes, directory listings, and file reads to MCP clients.
+A local-first Model Context Protocol (MCP) server that watches a folder on your machine and exposes file changes, directory listings, and file reads to MCP clients. Built by Asdale Dynamics, LLC, in Dylan Asdale's beginner-friendly, local-first, tested style.
 
 Components:
 - `src/config.ts` — loads JSON config (`config.json`) with safe defaults; `MCP_CONFIG_PATH` env var overrides the config location
@@ -12,11 +12,9 @@ Components:
 - `src/index.ts` — entry point
 - `tests/` — vitest unit tests for config loading, watcher (create/modify/delete/recursive/trim/filter), listing, reading, and path-traversal guards
 - `LICENSE` — MIT, Copyright (c) 2026 Asdale Dynamics, LLC
-- `README.md` — credits Asdale Dynamics, LLC; setup, config, MCP client wiring
+- `README.md` — credits Asdale Dynamics, LLC; beginner-friendly setup, config, and MCP client wiring
 - `config.json.example` — sample config file
 - `package.json`, `tsconfig.json`, `.gitignore` — project wiring
-
-Built by Asdale Dynamics, LLC (Indiana, formed October 2026), per Dylan Asdale's beginner-friendly, local-first, tested style.
 
 ## How to run it
 
@@ -49,13 +47,13 @@ Tools available: `list_files`, `read_file`, `get_changes`.
 - `npm run typecheck` (`tsc --noEmit`): PASS
 - `npm run build` (`tsc`): PASS — emits `dist/`
 - `npm test` (`vitest run`): PASS — 3 files, 20 tests passed
-- End-to-end MCP smoke test over stdio (`initialize` + `tools/list` + `tools/call` for `read_file` and `list_files`): PASS — returned expected file contents and listings
+- End-to-end MCP smoke test over stdio (`initialize` + `tools/list` + `tools/call` for `read_file`, `list_files`, and `get_changes` including create and delete events): PASS
 
 No `.github/workflows` files were added. No secrets, API keys, or personal data are present in any file.
 
 ## Known gaps
 
-- File watcher uses Node `fs.watch`; recursive behavior and rename events vary slightly by OS (tested on Linux).
+- File watcher uses Node `fs.watch`; recursive behavior and event timing vary slightly by OS (tested on Linux).
 - Change events are kept in memory only; they are lost when the server restarts.
 - `read_file` reads as UTF-8 text only; binary files are not supported.
 - No authentication or authorization (intended for local-only use).

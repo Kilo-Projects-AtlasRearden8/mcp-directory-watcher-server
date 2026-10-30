@@ -2,7 +2,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 
 export interface ChangeEvent {
-  type: "create" | "modify" | "delete" | "rename";
+  type: "create" | "modify" | "delete";
   path: string;
   relativePath: string;
   timestamp: number;
